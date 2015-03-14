@@ -1,0 +1,26 @@
+//- Font size 1 - 10px
+//- Font size 2 - 13px
+//- Font size 3 - 16px
+//- Font size 4 - 18px
+//- Font size 5 - 24px
+//- Font size 6 - 32px
+//- Font size 7 - 48px
+
+mixin table(width, bgcolor)
+  table(width=width, border="0", cellpadding="0", cellspacing="0", bgcolor=bgcolor)&attributes(attributes)
+    block
+
+mixin td(width, valign)
+  td(width=width, valign=valign)&attributes(attributes)
+    block
+
+mixin img(name, width, height)
+  img(src="img/" + name, alt="", width=width, height=height, border="0", style="display: block; width: " + width + "px; height: " + height + "px; border: 0; " + (attributes.style || ''), IMAGE="")
+
+mixin font(color, size, face)
+  font(color=color, size=size, face=face)&attributes(attributes)
+    block
+
+mixin a(href)
+  a(href=href, target="_blank")&attributes(attributes)
+    block

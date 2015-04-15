@@ -15,10 +15,18 @@ mixin td(width, valign)
     block
 
 mixin img(name, width, height)
-  img(src="img/" + name, alt="", width=width, height=height, border="0", style="display: block; width: " + width + "px; height: " + height + "px; border: 0; " + (attributes.style || ''), IMAGE="")
+  img(src="img/" + name, alt="", width=width, height=height, border="0", style="display: block; width: " + width + "px; height: " + height + "px; border: 0; " + (attributes.style || ''))
 
 mixin font(color, size, face)
-  font(color=color, size=size, face=face)&attributes(attributes)
+  - var pxFontSize;
+  - if (size == 1) { pxFontSize = 10; }
+  - if (size == 2) { pxFontSize = 13; }
+  - if (size == 3) { pxFontSize = 16; }
+  - if (size == 4) { pxFontSize = 18; }
+  - if (size == 5) { pxFontSize = 24; }
+  - if (size == 6) { pxFontSize = 32; }
+  - if (size == 7) { pxFontSize = 48; }
+  font(color=color, size=size, face=face, style="font-size: #{pxFontSize}px; color: ##{color};")&attributes(attributes)
     block
 
 mixin a(href)
